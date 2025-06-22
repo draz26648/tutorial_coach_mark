@@ -50,6 +50,7 @@ abstract class TutorialCoachMarkController {
   void next();
   void previous();
   void skip();
+  void skipWidgetAction();
 }
 
 extension StateExt on State {

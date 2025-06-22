@@ -56,6 +56,7 @@ class TutorialCoachMark {
 
   // if onSkip return false, the overlay will not be dismissed and call `next`
   final bool Function()? onSkip;
+  final bool Function()? onSkipWidgetAction;
   final AlignmentGeometry alignSkip;
   final String textSkip;
   final TextStyle textStyleSkip;
@@ -89,6 +90,7 @@ class TutorialCoachMark {
     this.onFinish,
     this.paddingFocus = 10,
     this.onSkip,
+    this.onSkipWidgetAction,
     this.alignSkip = Alignment.bottomRight,
     this.textSkip = "SKIP",
     this.textStyleSkip = const TextStyle(color: Colors.white),
@@ -118,6 +120,7 @@ class TutorialCoachMark {
           clickOverlay: onClickOverlay,
           paddingFocus: paddingFocus,
           onClickSkip: skip,
+          onClickSkipWidgetAction: skipWidgetAction,
           alignSkip: alignSkip,
           skipWidget: skipWidget,
           textSkip: textSkip,
@@ -205,6 +208,16 @@ class TutorialCoachMark {
     bool removeOverlay = onSkip?.call() ?? true;
     if (removeOverlay) {
       _removeOverlay();
+    } else {
+      next();
+    }
+  }
+
+  void skipWidgetAction() {
+    bool removeOverlay = onSkipWidgetAction?.call() ?? true;
+    if (removeOverlay) {
+      _removeOverlay();
+      _widgetKey.currentState?.skipWidgetAction();
     } else {
       next();
     }

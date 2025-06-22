@@ -20,6 +20,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
     this.alignSkip = Alignment.bottomRight,
     this.textSkip = "SKIP",
     this.onClickSkip,
+    this.onClickSkipWidgetAction,
     this.skipWidget,
     this.colorShadow = Colors.black,
     this.opacityShadow = 0.8,
@@ -49,6 +50,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final double opacityShadow;
   final double paddingFocus;
   final void Function()? onClickSkip;
+  final void Function()? onClickSkipWidgetAction;
   final AlignmentGeometry alignSkip;
   final String textSkip;
   final TextStyle textStyleSkip;
@@ -281,19 +283,25 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
         child: AnimatedOpacity(
           opacity: showContent ? 1 : 0,
           duration: Durations.medium2,
-          child: InkWell(
-            onTap: skip,
-            child: IgnorePointer(
-              child: widget.skipWidget ??
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text(
-                      widget.textSkip,
-                      style: widget.textStyleSkip,
+          child: widget.skipWidget != null
+              ? InkWell(
+                  onTap: skipWidgetAction,
+                  child: IgnorePointer(
+                    child: widget.skipWidget!,
+                  ),
+                )
+              : InkWell(
+                  onTap: skip,
+                  child: IgnorePointer(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        widget.textSkip,
+                        style: widget.textStyleSkip,
+                      ),
                     ),
                   ),
-            ),
-          ),
+                ),
         ),
       ),
     );
@@ -301,6 +309,9 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
 
   @override
   void skip() => widget.onClickSkip?.call();
+
+  @override
+  void skipWidgetAction() => widget.onClickSkipWidgetAction?.call();
 
   @override
   void next() => _focusLightKey.currentState?.next();
