@@ -217,7 +217,6 @@ class TutorialCoachMark {
     bool removeOverlay = onSkipWidgetAction?.call() ?? true;
     if (removeOverlay) {
       _removeOverlay();
-      _widgetKey.currentState?.skipWidgetAction();
     } else {
       next();
     }
