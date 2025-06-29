@@ -32,6 +32,7 @@ class AnimatedFocusLight extends StatefulWidget {
     this.rootOverlay = false,
     this.initialFocus = 0,
     this.backgroundSemanticLabel,
+    this.finishOnBackgroundTap = true,
   })  : assert(targets.length > 0),
         super(key: key);
 
@@ -55,6 +56,7 @@ class AnimatedFocusLight extends StatefulWidget {
   final ImageFilter? imageFilter;
   final int initialFocus;
   final String? backgroundSemanticLabel;
+  final bool finishOnBackgroundTap;
 
   @override
   // ignore: no_logic_in_create_state
@@ -142,13 +144,20 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
     bool overlayTap = false,
   }) async {
     if (_isAnimating) return;
-    nextIndex++;
+
+    if (overlayTap) {
+      await widget.clickOverlay?.call(_targetFocus);
+      // Only proceed to next step if finishOnBackgroundTap is true
+      if (!widget.finishOnBackgroundTap) {
+        return;
+      }
+    }
+
     if (targetTap) {
       await widget.clickTarget?.call(_targetFocus);
     }
-    if (overlayTap) {
-      await widget.clickOverlay?.call(_targetFocus);
-    }
+
+    nextIndex++;
     return _revertAnimation();
   }
 

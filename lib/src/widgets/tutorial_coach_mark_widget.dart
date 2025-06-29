@@ -37,6 +37,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
     this.imageFilter,
     this.backgroundSemanticLabel,
     this.initialFocus = 0,
+    this.finishOnBackgroundTap = true,
   })  : assert(targets.length > 0),
         super(key: key);
 
@@ -67,6 +68,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final ImageFilter? imageFilter;
   final int initialFocus;
   final String? backgroundSemanticLabel;
+  final bool finishOnBackgroundTap;
 
   @override
   TutorialCoachMarkWidgetState createState() => TutorialCoachMarkWidgetState();
@@ -100,6 +102,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
             rootOverlay: widget.rootOverlay,
             imageFilter: widget.imageFilter,
             backgroundSemanticLabel: widget.backgroundSemanticLabel,
+            finishOnBackgroundTap: widget.finishOnBackgroundTap,
             clickTarget: (target) {
               return widget.clickTarget?.call(target);
             },

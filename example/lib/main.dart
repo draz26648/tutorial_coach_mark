@@ -231,7 +231,7 @@ class MyHomePageState extends State<MyHomePage> {
       colorShadow: Colors.red,
       textSkip: "SKIP",
       paddingFocus: 10,
-      opacityShadow: 0.5,
+      opacityShadow: 0.8,
       imageFilter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
       onFinish: () {
         print("finish");
@@ -251,6 +251,8 @@ class MyHomePageState extends State<MyHomePage> {
         print("skip");
         return true;
       },
+      // Set to false to prevent tutorial from finishing when user clicks on background
+      // finishOnBackgroundTap: false,
     );
   }
 

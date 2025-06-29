@@ -1,83 +1,104 @@
+# 1.3.1
+
+- Add `finishOnBackgroundTap` property to control whether the tutorial finishes when user clicks on background/shadow area. Default is `true`.
+
 # 1.3.0
+
 - Hidden view, allowing you to block backspace while in the tutorial [#213](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/213) by [AngelMinga](https://github.com/AngelMinga)
 
 # 1.2.13
+
 - Disable tap while animate. Fix issue [#205](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/205)
 
 # 1.2.12
+
 - Change moment where call `_controller.forward()` occurs. That prevents the `unFocusAnimationDuration` is always called;
 - Update `onSkip` in `README`
 - Fix issue [192](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/192)
 
 # 1.2.11
+
 - Fix issue [165](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/165)
 
 # 1.2.10
+
 - now `onSkip` return a bool. if onSkip return false, the overlay will not be dismissed and call `next`. [#89](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/89)
 - Able to set to use or not SafeArea widget. Thanks [devmasteripatas](https://github.com/devmasteripatas).
 - Adds `initialFocus` in `TutorialCoachMark` to select witch focus you want init.
 - Adds method `goTo(index)` in `TutorialCoachMark` to navigate to focus you want.
 
 # 1.2.9
+
 - set `ignoringSemantics` false in `skip` button. Reolve [#156](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/156)
 - adds `ImageFilter`. Now is possible apply blur in the shadow. [#151](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/151)
 - Adds option to show the tutorial without context. `showWithNavigatorStateKey` and `showWithOverlayState`
 
 # 1.2.8
+
 - Adds Method 'insert' cannot be called on 'OverlayState?' because it is potentially null. Called using ?. instead.
 
-
 # 1.2.7
+
 - Adds `showSkipInLastTarget`.
 - Catch `NotFoundTargetException` to prevent the app being left in unusable state
 
 # 1.2.6
+
 - Improvements in `AnimatedFocusLight`;
 - Adds again `unFocusAnimationDuration` in `TargetFocus`;
 - Adds `NotFoundTargeException`;
 - Fix issue [#103](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/103)
 
 # 1.2.5
+
 - Fixed target global position when using rootOverlay and inner navigator [#142](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/142). Thanks [Guillaume](https://github.com/guildem)
 - Adds `flutter_lints`
 - Update `README`
 
-
 # 1.2.4
+
 - BREAKING CHANGE: moved `context` of the TutorialCoachMark to `show` method. `tutorialCoachMark.show(context:context);`
 - Resolve issue [#125](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/125)
 
 # 1.2.3
+
 - Fix warn build in Flutter 3.0.
 - Collect target tap position. [PR #116](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/116)
 
 # 1.2.2
+
 - Add unfocus animation duration. [PR #111](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/111)
 - Update Build gradle, kotlin, fix manifest. [PR #110](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/110)
 
 # 1.2.1
+
 - Add `BorderSide` param in `TargetFocus`. [PR #96](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/96)
 - Added right property for custom alignment. [PR #101](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/101)
 
 # 1.2.0
+
 - Add `pulseEnable` param in `TutorialCoachMark` to enable/disable pulse animation. [PR #88](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/88)
 - Add `padding` param in `TargetContent` to customize target padding. [PR #84](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/84)
 - Add optional param `rootOverlay` in `TutorialCoachMark.show()`. Suggestion date in issue [93](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/93)
 - The methods `onClickTarget` and `onClickOverlay` now they can be asynchronous and the next target will only be called after processing something added to it.
 
 # 1.1.1
+
 - Fiz error [issue 82](https://github.com/RafaelBarbosatec/tutorial_coach_mark/issues/82)
 
 # 1.1.0
+
 - Add web support! [PR #79](https://github.com/RafaelBarbosatec/tutorial_coach_mark/pull/79) Thanks [Will Reppun
-](https://github.com/wreppun)
+  ](https://github.com/wreppun)
 
 # 1.0.3
+
 - Fix blink when start tutorial with shape `ShapeLightFocus.RRec`
 
 # 1.0.2
+
 - Adds builder(BuildContext context, TutorialCoachMarkController controller) in `TargetContent`.
-Now you can create a widget of the `TargetContent` with `child` or `builder`.
+  Now you can create a widget of the `TargetContent` with `child` or `builder`.
 
 # 1.0.1
 

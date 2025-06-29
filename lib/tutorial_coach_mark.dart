@@ -75,6 +75,7 @@ class TutorialCoachMark {
   final int initialFocus;
   final GlobalKey<TutorialCoachMarkWidgetState> _widgetKey = GlobalKey();
   final bool disableBackButton;
+  final bool finishOnBackgroundTap;
 
   OverlayEntry? _overlayEntry;
   ModalRoute?
@@ -107,6 +108,7 @@ class TutorialCoachMark {
     this.initialFocus = 0,
     this.backgroundSemanticLabel,
     this.disableBackButton = true,
+    this.finishOnBackgroundTap = true,
   }) : assert(opacityShadow >= 0 && opacityShadow <= 1);
 
   OverlayEntry _buildOverlay({bool rootOverlay = false}) {
@@ -139,6 +141,7 @@ class TutorialCoachMark {
           imageFilter: imageFilter,
           initialFocus: initialFocus,
           backgroundSemanticLabel: backgroundSemanticLabel,
+          finishOnBackgroundTap: finishOnBackgroundTap,
         );
       },
     );
