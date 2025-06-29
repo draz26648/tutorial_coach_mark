@@ -201,7 +201,7 @@ class TutorialCoachMark {
 
   void finish() {
     onFinish?.call();
-    _removeOverlay();
+    // _removeOverlay();
   }
 
   void skip() {
