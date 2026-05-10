@@ -203,8 +203,8 @@ class TutorialCoachMark {
   }
 
   void finish() {
-    // onFinish?.call();
-    // _removeOverlay();
+    onFinish?.call();
+    _removeOverlay();
   }
 
   void skip() {
